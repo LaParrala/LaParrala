@@ -244,11 +244,21 @@ header {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: bold;
-    color: #c14f3d;
+    color: #444; 
     text-transform: uppercase;
     letter-spacing: 3px;
     display: inline-block;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bienvenida .izq h1 span {
+    display: inline-block;
+    position: relative;
+}
+
+.bienvenida .izq h1 span::first-letter {
+    font-size: 120%;
+    font-weight: 900;
 }
 
 .bienvenida .izq h1::after {
@@ -257,7 +267,7 @@ header {
     width: 80px;
     height: 4px;
     margin: 12px auto 0;
-    background: linear-gradient(90deg, #d5c468, #fff3b0, #d5c468);
+    background: linear-gradient(90deg, #444, rgb(202, 202, 202), #444);
     border-radius: 5px;
     animation: underlineExpand 2s ease forwards;
 }
@@ -283,7 +293,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 50px;
 }
 
@@ -817,7 +827,7 @@ footer {
     }
 
     .dia.destacado {
-        width: 85%;
+        width: 80%;
         max-width: 350px;
         padding: 30px 20px;
     }
@@ -961,8 +971,8 @@ footer {
     }
 
     .dia {
-        width: 90%;
-        padding: 15px;
+        width: 70%;
+        padding: 10px;
     }
 
     section {
