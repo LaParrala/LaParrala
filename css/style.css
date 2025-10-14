@@ -289,6 +289,17 @@ text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     font-size: 1.1em;
 }
 
+/* Evitar cortes en las tarifas y controlar separadores/saltos */
+.tarifa-chunk {
+    white-space: nowrap;
+}
+.sep-desktop {
+    display: inline;
+}
+.br-movil {
+    display: none;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -848,7 +859,7 @@ footer {
 
     .bienvenida .izq {
         padding-right: 0;
-        margin-bottom: 30px;
+
     }
 
     .horarios-contenedor {
@@ -861,6 +872,10 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 0;
+    }
+
+    .features {
+        display: none;
     }
 
     .dia {
@@ -971,6 +986,14 @@ footer {
         font-size: 1rem;
         letter-spacing: 1.5px;
     }
+
+    /* En móvil: ocultar separador vertical y mostrar salto */
+    .sep-desktop {
+        display: none;
+    }
+    .br-movil {
+        display: inline;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -996,6 +1019,52 @@ footer {
     section {
         scroll-margin-top: 120px;
         /* header un poco más bajo que en escritorio */
+    }
+}
+
+/* Rango específico para tablets: 769px–992px */
+@media (min-width: 769px) and (max-width: 992px) {
+    /* Tipografías ligeramente más contenidas */
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .bienvenida .izq h1 {
+        font-size: 2.6rem;
+    }
+
+    /* Encabezado/logo más compacto para mostrar más contenido above the fold */
+    .logo img {
+        height: 90px;
+        width: 90px;
+    }
+
+    .principal::before {
+        top: 105px;
+    }
+
+    /* Cuadrícula de platos: dos columnas ya aplicadas; reducir ligeramente gap */
+    .grid-platos {
+        gap: 28px;
+    }
+
+    /* Horarios: ajustar legibilidad sin ocupar demasiada altura */
+    .dia .dia-semana {
+        line-height: 1.25;
+    }
+
+    /* Botones: tap targets más cómodos en tablet */
+    .acciones a {
+        padding: 9px 18px;
+        font-size: 1rem;
+    }
+
+    /* Vídeo y mapa: limitar anchura y centrar */
+    .video-container,
+    .map-container {
+        max-width: calc(100% - 40px);
+        margin: 0 auto;
+        border-radius: 12px;
     }
 }
 
