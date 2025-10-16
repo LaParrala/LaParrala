@@ -289,7 +289,6 @@ text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     font-size: 1.1em;
 }
 
-/* Evitar cortes en las tarifas y controlar separadores/saltos */
 .tarifa-chunk {
     white-space: nowrap;
 }
@@ -392,7 +391,7 @@ text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     transition: 0.3s;
     text-transform: uppercase;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-decoration: none;
     font-family: 'Palanquin', sans-serif;
 }
@@ -408,13 +407,13 @@ text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 
 .acciones .carta-btn {
     color: #555;
-    border: 2px solid #fcebeb;
+    border: 2px solid #C14F3D;
     background-color: #fbfbfc;
 }
 
 .acciones .carta-btn:hover {
-    color: #c14f3d;
-    background: #fcebeb;
+    color: #fbfbfc;
+    background: #C14F3D;
 }
 
 .bienvenida .der p:first-of-type {
@@ -687,21 +686,24 @@ footer {
     justify-content: center;
 }
 
+.footer-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .footer-info a,
 .footer-info p {
     color: #fff;
     font-size: 1rem;
     line-height: 1.6;
-}
-
-.footer-info a {
-    display: block;
-    margin-bottom: 5px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .footer-social {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .footer-social img {
@@ -722,6 +724,55 @@ footer {
 
 .menu-toggle {
     display: none;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 2000;
+}
+
+.lightbox.abierto {
+    display: block;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+}
+
+#img-modal-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 34px;
+}
+
+/* Ocultar lightbox en no-escritorio por CSS defensivo */
+@media (max-width: 992px) {
+    .lightbox { display: none !important; }
 }
 
 
@@ -987,7 +1038,6 @@ footer {
         letter-spacing: 1.5px;
     }
 
-    /* En móvil: ocultar separador vertical y mostrar salto */
     .sep-desktop {
         display: none;
     }
@@ -1018,13 +1068,11 @@ footer {
 
     section {
         scroll-margin-top: 120px;
-        /* header un poco más bajo que en escritorio */
     }
 }
 
 /* Rango específico para tablets: 769px–992px */
 @media (min-width: 769px) and (max-width: 992px) {
-    /* Tipografías ligeramente más contenidas */
     h2 {
         font-size: 2.2rem;
     }
@@ -1033,7 +1081,6 @@ footer {
         font-size: 2.6rem;
     }
 
-    /* Encabezado/logo más compacto para mostrar más contenido above the fold */
     .logo img {
         height: 90px;
         width: 90px;
@@ -1043,23 +1090,19 @@ footer {
         top: 105px;
     }
 
-    /* Cuadrícula de platos: dos columnas ya aplicadas; reducir ligeramente gap */
     .grid-platos {
         gap: 28px;
     }
 
-    /* Horarios: ajustar legibilidad sin ocupar demasiada altura */
     .dia .dia-semana {
         line-height: 1.25;
     }
 
-    /* Botones: tap targets más cómodos en tablet */
     .acciones a {
         padding: 9px 18px;
         font-size: 1rem;
     }
 
-    /* Vídeo y mapa: limitar anchura y centrar */
     .video-container,
     .map-container {
         max-width: calc(100% - 40px);
@@ -1070,7 +1113,6 @@ footer {
 
 @media (max-width: 480px) {
     /* móviles muy pequeños */
-
 
     h2 {
         font-size: 1.6rem;
@@ -1097,7 +1139,8 @@ footer {
     }
 
     .acciones a {
-        font-size: 0.8rem;
+        color: #000;
+        font-size: 0.9rem;
         padding: 6px 12px;
     }
 
@@ -1108,25 +1151,28 @@ footer {
 
     section {
         scroll-margin-top: 90px;
-        /* header todavía más bajo en pantallas pequeñas */
     }
 }
 
 /* Solo para móviles en horizontal */
-@media screen and (max-height: 768px) and (orientation: landscape) {
-    body::before {
-        content: "⚠️ Gira tu dispositivo para verlo correctamente";
-        display: block;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: #fff;
-        padding: 20px;
-        font-size: 1.2rem;
-        text-align: center;
-        z-index: 9999;
-        border-radius: 10px;
-    }
+@media screen and (orientation: landscape) 
+  and (max-width: 900px) 
+  and (max-height: 768px)
+  and (pointer: coarse)
+{
+  body::before {
+    content: "⚠️ Gira tu dispositivo para verlo correctamente";
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    z-index: 9999;
+    border-radius: 10px;
+  }
 }
