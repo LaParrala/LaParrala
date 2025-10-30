@@ -1,8 +1,15 @@
-/* Fuentes de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Palanquin:wght@400;700&display=swap');
+/* VARIABLES Y GENERALES */
+:root {
+    --color-principal: #c14f3d;
+    --color-acento: #d5c468;
+    --color-fondo: #fbfbfc;
+    --color-texto-principal: #444;
+    --color-texto-secundario: #555;
+    --color-texto-claro: #fff;
+    --fuente-titulos: 'Philosopher', sans-serif;
+    --fuente-cuerpo: 'Palanquin', sans-serif;
+    --fuente-elegante: "Cormorant Garamond", serif;
+}
 
 /* GENERALES */
 * {
@@ -14,7 +21,7 @@
 body,
 html {
     overflow-x: hidden;
-    background-color: #fbfbfc;
+    background-color: var(--color-fondo);
     width: 100%;
 }
 
@@ -26,12 +33,12 @@ img {
 
 h2 {
     font-size: 2.5rem;
-    color: #444;
-    font-family: 'Philosopher', sans-serif;
+    color: var(--color-texto-principal);
+    font-family: var(--fuente-titulos);
 }
 
 p {
-    font-family: 'Palanquin', sans-serif;
+    font-family: var(--fuente-cuerpo);
 }
 
 section {
@@ -40,7 +47,7 @@ section {
 
 /* HEADER */
 header {
-    background-color: #fbfbfc;
+    background-color: var(--color-fondo);
     display: flex;
     position: fixed;
     align-items: center;
@@ -83,7 +90,7 @@ header {
     text-decoration: none;
     color: black;
     font-weight: bold;
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--fuente-elegante);
     font-size: 1.2rem;
     transition: color 0.3s;
 }
@@ -93,17 +100,17 @@ header {
 }
 
 .menu a:hover {
-    color: #d5c468;
+    color: var(--color-acento);
 }
 
 .contacto a {
     text-decoration: none;
     border: none;
-    color: #fbfbfc;
+    color: var(--color-fondo);
     padding: 7px 15px;
     font-weight: bold;
     cursor: pointer;
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--fuente-elegante);
     border-radius: 20px;
     background-color: red;
     font-size: 1.2rem;
@@ -112,7 +119,7 @@ header {
 
 .contacto a:hover {
     color: red;
-    background-color: #fbfbfc;
+    background-color: var(--color-fondo);
     border: 1px solid red;
 }
 
@@ -698,7 +705,6 @@ footer {
     color: #fff;
     font-size: 1rem;
     line-height: 1.6;
-    text-decoration: none;
 }
 
 .footer-social {
